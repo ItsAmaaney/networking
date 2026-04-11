@@ -26,7 +26,7 @@ It’s not perfect or complete yet — it’s a work in progress that grows as I
 
 ## 🎯 Objective
 Build strong SOC analyst skills by focusing on:
-- Logs understanding
+- Logs understanding.
 - Detection thinking
 - Real-world investigation flow
 - SIEM usage (only after fundamentals)

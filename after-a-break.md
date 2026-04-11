@@ -16,7 +16,7 @@ google.com → 142.250.x.x
 1. User enters a domain (google.com)
 2. Request goes to DNS resolver
 3. Resolver returns IP address
-4. Browser connects to that IP
+4. Browser connects to that IP.
 
 ---
 

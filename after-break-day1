@@ -7,7 +7,7 @@
 - Happens at regular intervals (e.g., every 5s, 10s, 60s)
 
 ### Key Indicators
-- High-frequency DNS queries
+- High-frequency DNS queries.
 - Random-looking domains (DGA-like)
 - Same destination IP repeatedly
 - Consistent timing pattern
