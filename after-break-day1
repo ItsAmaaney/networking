@@ -1,0 +1,148 @@
+# 📓 SOC Notes — Day Log (DNS, C2, HTTPS)
+
+## 🧠 1. DNS Beaconing (C2 Communication)
+
+### What it is
+- Malware uses DNS to communicate with attacker (C2 server)
+- Happens at regular intervals (e.g., every 5s, 10s, 60s)
+
+### Key Indicators
+- High-frequency DNS queries
+- Random-looking domains (DGA-like)
+- Same destination IP repeatedly
+- Consistent timing pattern
+
+### Logs to Check
+- DNS query logs
+- Firewall outbound logs
+- EDR network telemetry
+
+
+---
+
+## 🧠 2. DoS vs Beaconing
+
+### DoS (Denial of Service)
+- Goal: Overwhelm a target
+- High traffic volume
+- Irregular/chaotic pattern
+
+### Beaconing
+- Goal: Maintain communication with C2
+- Low, consistent traffic
+- Regular timing pattern
+
+> ⚠️ Key Difference: Behavior pattern, not just traffic volume
+
+
+---
+
+## 🧠 3. Attack Flow (Kill Chain Thinking)
+
+1. Initial Access → Phishing email (PDF)
+2. Execution → Malicious code runs
+3. Command & Control → System starts beaconing
+
+> Always identify: “Which stage am I seeing?”
+
+
+---
+
+## 🧠 4. HTTPS C2 Communication
+
+### Why attackers use HTTPS
+- Encrypted → harder to inspect    ( C2 means server/system contrld by an attacker to commnct with infctd machines)
+- Blends with normal traffic
+- Bypasses basic detection
+
+### Indicators
+- Repeated HTTPS connections (e.g., every 60s)
+- Unknown IP/domain
+- Same destination consistently
+
+
+---
+
+## 🧠 5. Log Mapping (Core SOC Skill)
+
+| Activity            | Logs to Check            |
+|--------------------|-------------------------|
+| Email delivery     | Email gateway logs      |
+| DNS activity       | DNS logs                |
+| HTTPS traffic      | Proxy + Firewall logs   |
+| Process execution  | EDR telemetry           |
+
+> If you can't map activity → logs → you're not SOC-ready
+
+
+---
+
+## 🧠 6. EDR Investigation (Critical)
+
+### First Step
+- Check **process tree**
+
+### Suspicious Examples
+- acrobat.exe → powershell.exe
+- winword.exe → cmd.exe
+
+### Also Check
+- Command-line arguments
+- Network connections
+- Persistence (registry, scheduled tasks)
+
+
+---
+
+## 🧠 7. No DNS = Suspicious
+
+### Why?
+- Normal systems resolve domains first
+- Direct IP connection may indicate evasion
+
+### Possible Techniques
+- Hardcoded IP in malware
+- DNS bypass to avoid logging
+
+
+---
+
+## 🧠 8. Detection Thinking (SIEM)
+
+### Example Detection Rules
+- DNS queries > 50 per minute per host
+- Same IP contacted every 60 seconds
+- Direct IP HTTPS traffic (no DNS logs)
+
+### Tools
+- SIEM (e.g., Splunk)
+
+
+---
+
+## 🔥 Weak Areas to Improve
+
+- Confusing attack type vs attack stage
+- Lack of precise answers
+- Weak detection logic
+- Incomplete investigation flow
+
+
+---
+
+## 🎯 Next Steps
+
+- Complete 1 TryHackMe room daily
+- For each room, document:
+  - Logs involved
+  - 3 suspicious behaviors
+  - 1 detection idea
+
+
+---
+
+## 🧪 Quick Recall
+
+- DNS Beaconing = Periodic DNS communication with C2  
+- First step in EDR = Check process tree  
+- HTTPS usage = Encryption + stealth + evasion  
