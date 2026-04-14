@@ -121,6 +121,12 @@ Recon is the process of discovering targets, endpoints, and vulnerabilities.
 - Look for repeated failed requests
 - Identify unusual endpoints
 - Check request frequency
+- 
+  ## 🛠️ What to Check if detected
+- Any 200 responses (successful access) 🚨
+- Request frequency (automation?)
+- User-agent (tool or browser?)
+- Same IP continuing activity?
 
 ### 🧪 Example
 GET /admin → 404  
@@ -154,6 +160,18 @@ Trying multiple passwords repeatedly to gain access.
 ### 🚨 Detection Tips
 - Monitor login failures
 - Detect spikes in authentication attempts
+
+### Attack responce
+- Block malicious IP (after confirmation)
+- Lock account / apply rate limiting
+- Check IP reputation & geolocation
+- Analyze user-agent (bot vs browser)
+- Check if multiple accounts are targeted
+- Force password reset (if risk)
+- Enable MFA (Multi-Factor Authentication)
+- Review post-login activity (if any)
+- Monitor for continued attempts
+- Confirm attack has stopped
 
 ### 🧪 Example
 user=admin → failed  
