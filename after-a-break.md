@@ -28,7 +28,7 @@ What to look for:
 - Repeated failed DNS queries
 
 Possible threats:
-- DNS tunneling  [ Using DNS to secretly send data ]
+- (mainly) DNS tunneling  [ Using DNS to secretly send data ]
 - Malware beaconing  [ Infected system keeps contacting attacker again and again ]
 - Data exfiltration [ Stealing data from your system ]
 
