@@ -30,10 +30,13 @@ What to look for:
 Possible threats:
 - (mainly) DNS tunneling  [ Using DNS to secretly send data ]
 - Malware beaconing  [ Infected system keeps contacting attacker again and again ]
-- Data exfiltration [ Stealing data from your system ]
+- Data exfiltration [ Stealing data and transfer it from one system to another ]
 
 Example:
 100 DNS queries in 5 seconds → Suspicious
+
+##### FREQUENCY = how often requests happen
+##### TRAFFIC   = how much data is being sent
 
 ---
 
@@ -45,9 +48,9 @@ Process used to establish a TCP connection.
 ---
 
 ### Steps:
-1. SYN → Client initiates
-2. SYN-ACK → Server responds
-3. ACK → Client confirms
+##### 1. SYN → Client initiates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(syn- synchronise)
+##### 2. SYN-ACK → Server responds&nbsp;&nbsp;(ack - acknowledge)
+##### 3. ACK → Client confirms
 
 Connection established
 
@@ -85,7 +88,7 @@ Example:
 - 172.16 – 172.31.x.x
 
 ---
-
+Subnet = a range of IP addresses within a network
 ### Subnet Example
 192.168.1.0/24
 
@@ -104,8 +107,27 @@ What to look for:
 
 Possible threats:
 - Internal scanning
-- Lateral movement
+
+  Log pattern :- One host → many internal IPs
+  
+    Multiple ports (22, 445, 3389)
+  
+    High connection attempts
+  
+- Lateral movement ( Moving from one system → another inside network )
+
+ Log pattern :-  Same user logging into multiple systems
+
+  Unusual internal logins
+
+   One host accessing many others
 - Malware spread
+  
+log pattern :-  Same suspicious process on many systems
+
+ File copied across network
+ 
+ Multiple alerts from different endpoints
 
 Example:
 192.168.1.5 contacting multiple hosts → Suspicious
