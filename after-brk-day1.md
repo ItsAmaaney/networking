@@ -39,7 +39,7 @@ Before DNS beaconing happens, attacker must infect the system first
 
 ---
 
-## 🧠 3. Attack Flow (Kill Chain Thinking)
+## 🧠 3. Attack Flow (Kill Chain Thinking) in beaconings
 
 1. Initial Access → Phishing email (PDF)
 2. Execution → Malicious code runs
