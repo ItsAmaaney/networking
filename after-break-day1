@@ -11,7 +11,7 @@ Before DNS beaconing happens, attacker must infect the system first
 ### Key Indicators
 - High-frequency DNS queries.
 - Random-looking domains (DGA-like).
-- Same destination IP repeatedly
+- Same destination IP repeatedly.
 - Consistent timing pattern
 
 ### Logs to Check
