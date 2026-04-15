@@ -3,14 +3,7 @@
 ## 🧠 1. DNS Beaconing (C2 Communication)
 
 ### What it is
-- Malware uses DNS to communicate with attacker (C2 server)
-
-Before DNS beaconing happens, attacker must infect the system first
-- Happens at regular intervals (e.g., every 5s, 10s, 60s)
-
-### Key Indicators
-- High-frequency DNS queries.
-- Random-looking domains (DGA-like)
+- Malware u
 - Same destination IP repeatedly
 - Consistent timing pattern
 
