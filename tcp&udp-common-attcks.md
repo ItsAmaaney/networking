@@ -108,7 +108,7 @@ Recon is the process of discovering targets, endpoints, and vulnerabilities.
 - Try common paths (/admin, /backup.zip, etc.)
 
 ### 🔍 Log Indicators
-- Many 404 / 403 responses
+- Many 404 / 403 responses and mainly (GET) req can be viewed mostly in logs
 - Multiple endpoints in short time
 - No successful access
 - Random/sensitive paths
@@ -129,7 +129,7 @@ Recon is the process of discovering targets, endpoints, and vulnerabilities.
 - Same IP continuing activity?
 
 ### 🧪 Example
-GET /admin → 404  
+GET /admin → 404            
 GET /backup.zip → 404  
 GET /phpmyadmin → 404  
 
@@ -148,7 +148,7 @@ Trying multiple passwords repeatedly to gain access.
 - Trial and error
 
 ### 🔍 Log Indicators
-- Multiple failed logins
+- Multiple failed logins and mostly are shown as post or login req in logs
 - Same username
 - Short time interval
 - Possible success at end 🚨
@@ -161,6 +161,7 @@ Trying multiple passwords repeatedly to gain access.
 - Monitor login failures
 - Detect spikes in authentication attempts
 
+
 ### Attack responce
 - Block malicious IP (after confirmation)
 - Lock account / apply rate limiting
@@ -172,6 +173,7 @@ Trying multiple passwords repeatedly to gain access.
 - Review post-login activity (if any)
 - Monitor for continued attempts
 - Confirm attack has stopped
+
 
 ### 🧪 Example
 user=admin → failed  
