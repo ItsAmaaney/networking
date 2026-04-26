@@ -95,6 +95,19 @@ Never analyze protocol alone. Always correlate:
 
 ---
 
+### 🔥 FINAL MUST-MEMORIZE
+200 → exists  
+401 → login needed  
+403 → exists but blocked  
+404 → not found  
+500 → server error
+
+### In SOC pov 📊 
+404 → recon  
+403 → interesting target  
+200 → valid entry point  
+401 → auth needed
+
 ## 1️⃣ Reconnaissance (Scanning)
 
 ### 📌 Definition
