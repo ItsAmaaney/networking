@@ -170,9 +170,11 @@ Trying multiple passwords repeatedly to gain access.
 - HTTP/HTTPS
 - SSH (22), RDP (3389)
 
-### 🚨 Detection Tips
-- Monitor login failures
-- Detect spikes in authentication attempts
+### 🚨 What analyst should watch next
+- Continued login attempts from same IP  
+- Any successful login after failures  
+- Unusual login times or locations  
+- Increase in authentication failures across users
 
 
 ### Attack responce
