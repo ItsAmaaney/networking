@@ -108,6 +108,102 @@ Never analyze protocol alone. Always correlate:
 200 → valid entry point  
 401 → auth needed
 
+# HTTP Methods (SOC Perspective)
+
+## 🎯 Objective
+Understand HTTP methods and how they appear in logs for security analysis.
+
+---
+
+## 🔹 GET
+**Purpose:** Request data from server  
+
+**SOC Insight:**
+- Normal browsing activity  
+- High volume → possible reconnaissance (endpoint scanning)
+
+**Example:**
+- Accessing web pages  
+- Viewing resources  
+
+---
+
+## 🔹 POST
+**Purpose:** Send data to server  
+
+**SOC Insight:**
+- Common in authentication (login attempts)  
+- Multiple POST requests → possible brute force attack  
+
+**Example:**
+- Login requests  
+- Form submissions  
+
+---
+
+## 🔹 PUT
+**Purpose:** Replace or update data  
+
+**SOC Insight:**
+- Unexpected usage → suspicious  
+- May indicate unauthorized modification  
+
+---
+
+## 🔹 DELETE
+**Purpose:** Remove data  
+
+**SOC Insight:**
+- High risk action 🚨  
+- Unexpected DELETE requests → possible malicious activity  
+
+---
+
+## 🔹 PATCH
+**Purpose:** Partially update data  
+
+**SOC Insight:**
+- Used for modifying specific data  
+- Monitor for unusual changes  
+
+---
+
+## 🔹 HEAD
+**Purpose:** Retrieve headers only (no content)  
+
+**SOC Insight:**
+- Can be used to check resource existence  
+- Repeated use → possible reconnaissance  
+
+---
+
+## 🔹 OPTIONS
+**Purpose:** Check allowed methods  
+
+**SOC Insight:**
+- Used in normal browser/API behavior  
+- Excessive requests → possible probing activity  
+
+---
+
+## 🔥 Key Takeaways
+
+```
+GET → Read (normal / recon if excessive)  
+POST → Send (login attempts / brute force)  
+PUT/PATCH → Modify (watch for unauthorized changes)  
+DELETE → Remove (high risk 🚨)  
+HEAD/OPTIONS → Probe (recon activity)
+```
+
+---
+
+## 🧠 Analyst Thinking
+
+```
+Method + Pattern + Context = Detection
+```
+
 ## 1️⃣ Reconnaissance (Scanning)
 
 ### 📌 Definition
