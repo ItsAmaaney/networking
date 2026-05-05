@@ -357,6 +357,83 @@ x8s9d2k.data.attacker.com
 (repeated queries) 🚨  
 
 ---
+## 🔐 Credential Stuffing
+
+## 📌 Definition
+Credential stuffing is an attack where an attacker uses **already stolen usernames and passwords** (from data breaches) to log into accounts.
+
+- No guessing involved
+- Uses **valid credentials**
+
+---
+
+## 🧠 Core Idea
+- Brute Force = guessing passwords  
+- Password Spraying = trying common passwords across many users  
+- Credential Stuffing = using **real leaked credentials**
+
+---
+
+## 🔍 Log Pattern
+- LOGIN attempts (mostly **SUCCESS** or very few failures)
+- Often **no failed attempts before success**
+- Multiple user accounts may be targeted
+- IP behavior:
+  - single IP OR
+  - multiple/distributed IPs
+
+---
+
+## 🚨 Key Indicators
+- Successful login **without brute-force pattern**
+- Login from:
+  - unusual IP
+  - new location / country
+- Multiple accounts accessed in similar way
+- Activity looks legitimate but is abnormal for user
+
+---
+
+## 🧪 Post-Login Signals (CRITICAL)
+After login, attacker may:
+- Change password
+- Add recovery email
+- Disable MFA / security settings
+- Access or download sensitive data
+
+→ Indicates **Account Takeover (ATO)**
+
+---
+
+## 🔎 How to Confirm
+- Check login history (new IP / geo anomaly)
+- Compare with user's normal behavior
+- Look for **no failure pattern before success**
+- Correlate multiple accounts accessed
+- Analyze post-login actions
+
+---
+
+## ⚠️ Detection Challenge
+- No noisy failures (unlike brute force)
+- Looks like normal login
+- Requires **context-based analysis**
+
+---
+
+## 🎯 SOC Response
+- Lock affected account
+- Force password reset
+- Revoke active sessions
+- Investigate accessed/downloaded data
+- Enable MFA
+- Monitor for further suspicious activity
+
+---
+
+## 🧠 Key Takeaway
+> "Success ≠ Safe"
+A login can be successful and still be a compromise.
 
 ## 🧠 Key Analyst Mindset
 
